@@ -1,0 +1,9 @@
+package com.qa.opencart.Factory;
+/**
+ * 
+ * @author smijau
+ *
+ */
+public class DriverFactory {
+WebDriver driver;
+}

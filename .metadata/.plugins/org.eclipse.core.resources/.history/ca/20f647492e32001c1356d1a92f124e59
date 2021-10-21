@@ -1,0 +1,12 @@
+package com.qa.opencart.pages;
+
+import org.openqa.selenium.By;
+
+public class LoginPage {
+
+	//By locators
+	
+	private By username = By.id("input-email");
+	private By password=By.id("input-password");
+	private By loginButton = By.xpath("//input[@value='Login']");
+}

@@ -1,0 +1,11 @@
+browser=chrome
+url=https://demo.opencart.com/
+headless=false
+incognito=false
+higlight=true
+
+username=
+password=
+
+remote=true
+huburl=

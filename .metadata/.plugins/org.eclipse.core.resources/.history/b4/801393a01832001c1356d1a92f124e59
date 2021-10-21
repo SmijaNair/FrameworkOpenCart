@@ -1,0 +1,16 @@
+package com.qa.opencart.Factory;
+
+import org.openqa.selenium.WebDriver;
+
+/**
+ * 
+ * @author smijau
+ *
+ */
+public class DriverFactory {
+WebDriver driver;
+
+public void init_driver(String browserName) {
+	System.out.println("browsernme is "+browserName);
+}
+}
