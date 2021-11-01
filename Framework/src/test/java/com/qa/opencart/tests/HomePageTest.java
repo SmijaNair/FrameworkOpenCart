@@ -18,7 +18,7 @@ public class HomePageTest {
 		BrowserUtil br = new BrowserUtil();
 		WebDriver driver = br.init_driver("chrome");
 		//br.launchUrl("https://demo.opencart.com/index.php?route=account/login");
-		br.launchUrl("https://www.amazon.in/");
+		br.launchUrl("https://www.orangehrm.com/hris-hr-software-demo/");
 
 		System.out.println(br.getPageTitle());
 		System.out.println(br.getPageUrl());
@@ -27,6 +27,8 @@ public class HomePageTest {
 		By pwd = By.id("input-password");
 		By register = By.xpath("(//a[contains(text(),'Register')])[2]");
 		By links = By.tagName("a");
+		By country = By.id("Form_submitForm_Country");
+		By countryXpath=By.xpath("//select[@id='Form_submitForm_Country']/option");
 		
 		ElementUtil eleUtil = new ElementUtil(driver);
 //		eleUtil.doSendKeys(emailid, "smija@gmail.com");
@@ -37,6 +39,15 @@ public class HomePageTest {
 				for(String e: linksTextLink) {
 					System.out.println(e);
 				}
+				//eleUtil.doSelectDropDownValueByIndex(country, 0);
+				//eleUtil.doSelectDropDownValueByVisibleText(country, "Burkina Faso");
+				//eleUtil.doSelectDropDownValueByValue(country, "Brazil");
+				//eleUtil.doSelectDropDownValue(country,"Uzbekistan");
+				eleUtil.doSelectDropDownValueWithoutSelect(countryXpath, "Bulgaria");
+
+				
 	}
+	
+	
 
 }
