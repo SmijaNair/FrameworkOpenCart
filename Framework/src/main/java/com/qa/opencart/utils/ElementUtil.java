@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class ElementUtil {
 	//Never create ur driver as static inside the utility
-	 WebDriver driver;
+	 static WebDriver driver;
 	public ElementUtil(WebDriver driver) {
 	this.driver=driver;
 	}
@@ -88,5 +88,17 @@ public class ElementUtil {
 				break;
 			}
 		}
+	}
+	
+	public static String switchToWindowAndGetTitle(String windowId) {
+		driver.switchTo().window(windowId);
+		String title = driver.getTitle();
+		return title;
+	}
+	
+	public static String switchToWindowAndGetUrl(String windowId) {
+		driver.switchTo().window(windowId);
+		String title = driver.getCurrentUrl();
+		return title;
 	}
 }

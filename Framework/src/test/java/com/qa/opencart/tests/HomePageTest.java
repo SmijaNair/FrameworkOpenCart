@@ -19,7 +19,7 @@ public class HomePageTest {
 		WebDriver driver = br.init_driver("chrome");
 		//br.launchUrl("https://demo.opencart.com/index.php?route=account/login");
 		br.launchUrl("https://www.orangehrm.com/hris-hr-software-demo/");
-
+		driver.manage().window().maximize();
 		System.out.println(br.getPageTitle());
 		System.out.println(br.getPageUrl());
 		
