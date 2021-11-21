@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test  name="AmazonTest">
+    <classes>
+      <class name="Mytests.amazonTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
+    <test  name="OrangeHrm">
+    <classes>
+      <class name="Mytests.OrganeHrmTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
+    <test  name="DemoCart">
+    <classes>
+      <class name="Mytests.DemoCartTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  
+</suite> <!-- Suite -->

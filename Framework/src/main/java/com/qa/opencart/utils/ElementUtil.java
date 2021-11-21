@@ -7,6 +7,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class ElementUtil {
@@ -100,5 +101,24 @@ public class ElementUtil {
 		driver.switchTo().window(windowId);
 		String title = driver.getCurrentUrl();
 		return title;
+	}
+	public static void rightClickoptions(By locator,String value) {
+		List<WebElement> options = driver.findElements(locator);		
+		for(WebElement e:options) {
+			String option = e.getText();
+			if(option.equals(value)) {
+				e.click();
+				break;
+			}
+		}
+	}
+	
+	public  void doActionSendKeys(By locator,String value) {
+		Actions act = new Actions(driver);
+		act.sendKeys(getElement(locator),value).perform();
+	}
+	public  void doActionClick(By locator) {
+		Actions act = new Actions(driver);
+		act.click(getElement(locator)).perform();
 	}
 }

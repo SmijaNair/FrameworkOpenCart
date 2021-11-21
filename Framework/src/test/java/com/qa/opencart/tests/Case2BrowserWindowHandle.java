@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -13,25 +14,30 @@ public class Case2BrowserWindowHandle {
 		 WebDriverManager.chromedriver().setup();
 	        WebDriver driver = new ChromeDriver();
 	        driver.get("https://opensource-demo.orangehrmlive.com");
-	        driver.findElement(By.xpath("//img[@alt='LinkedIn OrangeHRM group']")).click();
-	        Set<String> handles =driver.getWindowHandles();
-	        Iterator<String> it = handles.iterator();
-	        String parentwindowId=it.next();
-	        driver.switchTo().window(parentwindowId);
-	        System.out.println("parent tile is "+driver.getTitle());
-	        
-	        String childwindowId=it.next();
-	        driver.switchTo().window(childwindowId);
-	        System.out.println("linkedin widnow is "+driver.getTitle());
-	        driver.close();
-	        driver.switchTo().window(parentwindowId);
-	        driver.findElement(By.xpath("//img[@alt='OrangeHRM on Facebook']")).click();
-	        String fbId=it.next();
-	        driver.switchTo().window(fbId);
-	        System.out.println("fb widnow is "+driver.getTitle());
-	       // driver.findElement(By.xpath("//img[@alt='OrangeHRM on twitter']")).click();
-	      //  driver.findElement(By.xpath("//img[@alt='OrangeHRM on youtube']")).click();
-
+	       WebElement linkedin = driver.findElement(By.xpath("//img[@alt='LinkedIn OrangeHRM group']"));
+	       WebElement facebook = driver.findElement(By.xpath("//img[@alt='OrangeHRM on Facebook']"));
+	       WebElement twitter =  driver.findElement(By.xpath("//img[@alt='OrangeHRM on twitter']"));
+	       WebElement youtube = driver.findElement(By.xpath("//img[@alt='OrangeHRM on youtube']"));
+	       
+	       linkedin.click();
+	       Set<String>handles = driver.getWindowHandles();
+	       Iterator<String> it = handles.iterator();
+	       String parent=it.next();
+	       String linkedinhandle=it.next();
+	       driver.switchTo().window(linkedinhandle);
+	       System.out.println("linked in title is "+driver.getTitle());
+	       driver.close();
+	       driver.switchTo().window(parent);
+	       
+	       facebook.click();
+	       Set<String>handles2 = driver.getWindowHandles();
+	       Iterator<String> it2 = handles2.iterator();
+	       String parent2=it2.next();
+	       String facebookhandle = it2.next();
+	       driver.switchTo().window(facebookhandle);
+	       System.out.println("facebook title is "+driver.getTitle());
+	       driver.close();
+	       driver.switchTo().window(parent);
 	}
 
 }
